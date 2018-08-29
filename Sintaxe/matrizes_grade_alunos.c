@@ -7,10 +7,11 @@
 #define CLASSES 3
 #define GRADES 30
 
-int grade[CLASSES][GRADES];
-void enter_grades(void);
-int get_grades(int num);
-void disp_grades(int g[][GRADES]);
+int grade[CLASSES][GRADES]; // CONSTANTE
+
+void enter_grades(void); // digita notas de alunos
+int get_grades(int num); // le  nota de alunos
+void disp_grades(int g[][GRADES]); // mostra nota de alunos
 
 void main (void){
 	char ch, str[80];
@@ -20,9 +21,9 @@ void main (void){
 			printf("(D)igitar notas\n");
 			printf("(M)ostrar notas\n");
 			printf("(S)air\n");
-			gets(str);
+			gets(str); // recebe a opção do usuario e atribui o primeiro caractere p/ variável ch
 
-			ch = toupper(*str);
+			ch = toupper(*str); /// toupper ==> converte letras maiusculas em minusculas
 		}while(ch != 'D' && ch != 'M' && ch != 'S');
 
 		switch(ch){
