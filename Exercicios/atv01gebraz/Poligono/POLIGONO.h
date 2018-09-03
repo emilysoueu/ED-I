@@ -20,20 +20,24 @@ Depois implemente as funções do TAD.
  * @parametro size o tamanho desejado
  * return um ponteiro para um poligono vazio
  */
-poligono *criarPolig(int size);
+poligono *criarPolig(int );
 
 //- inserção em ordem dos pontos do polígono 
-int inserirPontos(poligono* pol, int x, int y);
+int inserirPontos(poligono *, float , float ); 
 
 //- imprimir polígono  (imprimir os pontos do polígono?????)
-void printPoli(poligono* pol);
+float printPoli(poligono *); 
 
 //- obter tamanho dos lados do polígono e perímetro do poligono
-int tamanhoLados(poligono* pol, int size);
+int tamanhoLados(poligono *); 
 
 
 //- destruir polígono
-void destroiPol(poligono *pol);
+void destroiPol(poligono *);
+
+
+ 
+
 	
 
 

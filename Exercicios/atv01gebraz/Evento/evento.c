@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+//#include <evento.h>
 
 
 typedef struct _evento_{
@@ -8,9 +9,9 @@ typedef struct _evento_{
 	int atual;
 } evento;
 
-evento* geraVector(int entradas); // ok
-void mostraTudo(evento* eve); //ok
-int colocar(evento* eve, int chave); // ok
+evento* geraVector(int entradas); 
+void mostraTudo(evento* eve); 
+int colocar(evento* eve, int chave); 
 
 int main(){
 	  int tam, chave;
@@ -64,7 +65,12 @@ evento* geraVector(int entradas){
 }
 
 int colocar(evento* eve, int chave){
-	    if (eve != NULL){
+	    if ((eve == NULL) || eve -> entradas < 0){
+			return -1;
+		}
+		
+		eve -> atual = 0;
+		
 			if ((eve-> idvector!= NULL) && (eve -> entradas > eve-> atual)){
 				eve-> idvector[eve-> atual] = chave;
 				eve-> atual ++;
@@ -73,19 +79,17 @@ int colocar(evento* eve, int chave){
 			}
     }
 
-    return 0;
-
-
-}
 
 void mostraTudo(evento* eve){
 	int i;
+	int id;
 
 	if(eve == NULL){
 		return;
 	}
     for(i = 0; i < eve->entradas; i++){
-        printf("%d\n",eve->idvector[i]);
+		id = eve->idvector[i];
+        printf("%d\n",id);
     }
 return;
 }
