@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-//#include "POLIGONO.h"
+#include "POLIGONO.h"
 
-typedef struct _polig_{
-	float **vecpoli; // vetor tad ---- vecpoli[x][y]
-	float x;        // pos em x 
-	float y;       // pos em 
-	int size;     // quantidade de linhas
-}poligono;
 
-poligono *criarPolig(int size);   
+
+poligono* criarPolig(int size);   
 int inserirPontos(poligono *pol, float x, float y); 
 float printPoli(poligono *pol); 
 int tamanhoLados(poligono *pol); 

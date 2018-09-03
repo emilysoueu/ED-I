@@ -1,13 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
-//#include <evento.h>
+#include <evento.h>
 
 
-typedef struct _evento_{
-	int *idvector;
-	int entradas;
-	int atual;
-} evento;
+
 
 evento* geraVector(int entradas); 
 void mostraTudo(evento* eve); 

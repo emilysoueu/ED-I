@@ -20,7 +20,18 @@ Depois implemente as funções do TAD.
  * @parametro size o tamanho desejado
  * return um ponteiro para um poligono vazio
  */
-poligono *criarPolig(int );
+ 
+  #ifndef POLIGONO_H
+    #define POLIGONO_H
+    
+   typedef struct _polig_{
+	float **vecpoli; // vetor tad ---- vecpoli[x][y]
+	float x;        // pos em x 
+	float y;       // pos em 
+	int size;     // quantidade de linhas
+	}poligono;
+ 
+poligono* criarPolig(int );
 
 //- inserção em ordem dos pontos do polígono 
 int inserirPontos(poligono *, float , float ); 
@@ -34,6 +45,8 @@ int tamanhoLados(poligono *);
 
 //- destruir polígono
 void destroiPol(poligono *);
+
+#endif
 
 
  
