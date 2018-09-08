@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <evento.h>
+#include "evento.h"
 
 
 
@@ -33,46 +33,40 @@ return 0;
 }
 
 
-evento* geraVector(int entradas){
-
-	if (entradas < 0){
-		return NULL;
-	}
-	//evento* eve;
+evento* geraVector(int tam){
+	
 	evento *eve = (evento*) malloc(sizeof(evento));
-	///eve = (evento*)calloc(1,sizeof(evento));
-
-	if (eve == NULL){
+	
+	if ((eve == NULL)  || (tam == 0)){
 		return NULL;
 	}
-	///eve -> entradas = (int*) malloc(sizeof(int));
-	eve -> idvector = (int*) malloc(sizeof(int));
-
-	if (eve -> entradas == NULL){
-		free(eve);
-		eve = NULL;
+	eve -> idvector = (int*) malloc(sizeof(int)*tam);
+	
+	if (eve -> idvector == NULL){		
 		return NULL;
-	}
-
-	eve -> entradas = entradas;
+	}	
+		
+	eve -> entradas = tam;
+	printf("%d\n", eve -> entradas);
 	eve -> atual = 0;
 	return eve;
 
 }
 
 int colocar(evento* eve, int chave){
-	    if ((eve == NULL) || eve -> entradas < 0){
+	    if ((eve == NULL) || (eve -> entradas < 0) ){
 			return -1;
 		}
 		
-		eve -> atual = 0;
 		
-			if ((eve-> idvector!= NULL) && (eve -> entradas > eve-> atual)){
+			if ((eve-> idvector!= NULL) && (eve -> entradas >= eve-> atual)){
 				eve-> idvector[eve-> atual] = chave;
 				eve-> atual ++;
-				return 1;
-
+				
 			}
+		 return 1;
+
+			
     }
 
 
@@ -83,6 +77,7 @@ void mostraTudo(evento* eve){
 	if(eve == NULL){
 		return;
 	}
+	
     for(i = 0; i < eve->entradas; i++){
 		id = eve->idvector[i];
         printf("%d\n",id);
