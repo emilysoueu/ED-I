@@ -25,7 +25,7 @@ sequencia *criar(int max, Comp c, Print p, Remover r){
    return tmp;	
 }
 
-void destruir(sequencia **seq){
+void destruir(sequencia **seq){ // passar por referencia 
 	sequencia *tmp = *seq;
 	
 	for(int i=0; i< tmp -> qtd; i++){
