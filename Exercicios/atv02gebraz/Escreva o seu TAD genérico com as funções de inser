@@ -1,0 +1,29 @@
+****** Escreva o seu TAD genérico com as funções de inserção, remoção, busca, criação e destruição ************
+
+Sobre esse TAD, implemente as seguintes funções nessa ordem: **************************************************
+
+ 1) uma nova função de remoção que ao remover insira simplesmente NULL na posição e não mude mais nada. (ok)
+
+ 2) uma nova função de busca que perceba que NULL não é um valor válido e busque conitnue buscando mesmo que o valor seja nulo. (ok)
+
+ 3) uma nova função de inserção que ao verificar que o QTD é maior do que o tamanho do vetor, faça uma busca dentro do vetor por algum elemento que foi removido (conforme questão 1) e insira esse elemento nessa posição. (ok - reolver o problema do for)
+
+ 4) uma nova função de inserção que realize a inserção em ordem crescente dos elementos.(parece easy)
+
+Teste tudo.
+
+
+
+Extra:
+ 
+ ================================================================================================================================================
+ 5) escreva um TAD genérico Imagem. Esse TAD armazena Pixels numa matriz. Cada pixel pode ter um tipo diferente, o mais comum é que seja RGC (	 vetor de char de 3 posiçoes), mas pode ser de qualquer tipo. Cada pixel possui ainda uma coordenada dentro da imagem. Implemente as funções:
+
+ - construir (vc decide como receber os pixels)
+
+ - get1Pixel (recebendo a coordenada desejada)
+
+ - set1Pixel (recebendo a coordenada desejada e o valor para atualizar)
+
+ - getRect (recebendo a coordenada do ponto mais superior e a esquerda desejado, a largura e comprimento. Deve retornar um TAD Imagem com a região solicitada da imagem)
+ ================================================================================================================================================
