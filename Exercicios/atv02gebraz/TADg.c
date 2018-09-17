@@ -38,16 +38,16 @@ void destruir(sequencia **seq){ //passar por referencia
 	tmp = NULL;
 }
 
-//4) uma nova função de inserção que realize a inserção em ordem crescente dos elementos.
-int inserir(sequencia *seq, void *valor){
 
-	if (seq == NULL) return 0;	
-		
+int inserir(sequencia *seq, void *valor){
+	if (seq == NULL) return 0;
+	
+	
+	
 	  if (seq -> qtd >= seq -> max){
 		for (int i=0; i< seq -> max; i++){
 			if (seq -> dados[i] == NULL){ // inserir novos elementos na posição nula;
-				seq -> dados[i] = valor;
-				break;								
+				seq -> dados[i] = valor;				
 			}/// fim if				
 		}///fim for
 		return 1;			
@@ -55,7 +55,7 @@ int inserir(sequencia *seq, void *valor){
 		seq -> dados[seq -> qtd] = valor;
 		seq -> qtd++;
 		return 1;	
-	}///fim if	
+	}//fim if	
 }
 
 void listar(sequencia *seq){

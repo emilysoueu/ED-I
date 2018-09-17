@@ -1,0 +1,13 @@
+1) Implemente as funções do TAD fila:
+enfileirar
+desenfilar
+vazia (testa se a fila está vazia)
+--------------------------------------------
+2) Simule com a Fila implementada em (1) uma fila de atendimento da coordenação. A fila da coordenação deve funcionar da seguinte maneira:
+o tamanho máximo da fila é 20. Qualquer entrada a mais na fila deve ser descartada
+para começar o atendimento, a fila deve possuir pelo menos 10 pessoas em espera
+depois que começa o atendimento, novas pessoas entram na fila e sempre pessoas a mais tempo são atendidas
+---------------------------------------------
+3) Adicione a lei na fila da coordenação:
+inclua a ideia de prioridade da fila da coordenação. Assim idosos, deficientes, gestantes e mulheres com criança de colo, entram numa fila diferente de prioridade.
+o atendimento deve priorizar a fila de prioridade na razão 3 para 1. Ou seja, devem ser chamada 3x mais pessoas da fila de prioridade do que da fila normal

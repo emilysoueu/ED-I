@@ -64,17 +64,18 @@ int main(){
 		scanf("%d", &menu);
 			switch(menu){
 				// inserir elemetos
-				case 1:{															
+				case 1:{
+					
 					for(int i=0; i<tam; i++){
 						int *a =(int *)malloc(sizeof(int));	
 						printf("Insira: \n");
 						scanf("%d",&*a); // ?? certo					
 						inserir(seq, (void *)a);  /// a partir de 5 começa a dar problema
-					    }				 			
-					}
-					break;
+					    }					
+					}break;
+				case 2:{
 					int chave;
-				case 2:{					
+					
 					printf("Informe o elemento de busca: ");
 					scanf("%d", &chave);
 					
@@ -86,7 +87,8 @@ int main(){
 					}break;
 				case 3:{
 					printf("Elementos da sequencias: \n");
-					listar(seq);						
+					listar(seq);	
+					
 					}break;
 				case 4:{
 					int chave;
@@ -97,9 +99,12 @@ int main(){
 					remover(seq, (void*)&chave);
 					
 					}break;
-				case 5:{					
-					destruir(&seq);							
-					printf("Sequencia destruida com sucesso: \n");					
+				case 5:{
+					
+					destruir(&seq);		
+					
+					printf("Sequencia destruida com sucesso: \n");
+					
 					}break;
 				case 6:{
 					exit(0);
