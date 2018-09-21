@@ -12,7 +12,7 @@ sequencia *criar(int max, Comp c, Print p, Remover r){
 	sequencia *tmp = (sequencia*) malloc(sizeof(sequencia)); 
 	
 	if (tmp != NULL){
-		tmp -> dados = (void*)malloc(sizeof(void)* max);
+		tmp -> dados = (void*)malloc(sizeof(void*)* max);
 		if (tmp -> dados != NULL){
 			tmp -> max = max;
 			tmp -> qtd = 0;
@@ -40,23 +40,32 @@ void destruir(sequencia **seq){ //passar por referencia
 
 
 int inserir(sequencia *seq, void *valor){
-	if (seq == NULL) return 0;
-	
-	
-	
-	  if (seq -> qtd >= seq -> max){
-		for (int i=0; i< seq -> max; i++){
-			if (seq -> dados[i] == NULL){ // inserir novos elementos na posição nula;
-				seq -> dados[i] = valor;				
-			}/// fim if				
-		}///fim for
-		return 1;			
-	}else{
-		seq -> dados[seq -> qtd] = valor;
-		seq -> qtd++;
-		return 1;	
-	}//fim if	
-}
+  	
+	if (seq == NULL) return 0;	
+
+  if (seq -> dados[seq -> qtd] == NULL){
+     seq -> dados[seq -> qtd] = valor; 
+    }
+
+    int pos = seq -> qtd;
+    
+  
+    for (int i = 0; i< seq -> max; i++){	
+      if (seq ->dados[i] != NULL){     		
+        if (seq -> comp(seq ->dados[i], valor) == 1){ ///(a > b) = 1, (a<b) = -1, (a==b) = 0; 
+              void *aux = (void*)seq->dados[i]; 
+              seq ->dados[i] = valor;
+              seq ->dados[pos] = aux; 
+              valor = aux;      	
+        }         
+      }//fim if
+     
+    }// fim for  
+   seq -> qtd++; 
+	 return 1;
+  } //fim else
+
+
 
 void listar(sequencia *seq){
 	if (seq == NULL){
