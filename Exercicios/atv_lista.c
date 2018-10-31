@@ -133,22 +133,23 @@ lista *criar(){
    ///  d. Inverter uma lista de modo que o último elemento se torne o primeiro, e assim por diante.
    //[aqui é pra ser utilizada em uma lista duplamente encadeada]
    void trocaOrdem(lista* l1){
-	node* beg = l1 -> cab;
+
 	node* end = l1 ->  tail;
-	node* temp;
+  node* beg = end -> prev;
+	node* tmp;
 	
-	
-	temp = beg;
-	beg = end;
-	end = temp;
-	
-	int x;
-	
-	while(beg!= NULL){
-		x = beg -> dado;
-		printf("%d ", x);
-		beg = beg -> prev;
-	}
+	while(end != NULL){
+    
+    tmp = end->prox;
+    end->prox = end ->prev;
+    end ->prev = tmp;
+    end = end -> prox;
+  }
+
+  tmp = l1-> tail;
+  l1 -> tail = l1 -> cab;
+  l1 -> cab = tmp;
+   
 		
 }
    ///  e. Eliminar o último elemento de uma lista.
