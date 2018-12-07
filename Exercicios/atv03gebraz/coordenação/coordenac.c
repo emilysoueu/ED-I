@@ -6,7 +6,7 @@
 //====================FUNCTIONS=========================//
 
 fila *criar(int max){
-	fila* q = (fila*)malloc(sizeof(fila));	
+	fila *q = (fila*)malloc(sizeof(fila));	
 	if (q == NULL) return NULL;
 		
 	q->coor = (int*)malloc(sizeof(int)*max);

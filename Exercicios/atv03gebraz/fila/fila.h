@@ -1,6 +1,10 @@
 #ifndef FILA_H
 #define FILA_H
 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include <stdbool.h>
 
 typedef struct _fila_{
