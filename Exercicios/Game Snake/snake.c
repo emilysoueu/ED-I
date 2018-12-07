@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include "snake.h"
+//#include "snake.h"
 
 cobra* criar(int x){
 	cobra *c = (cobra*)malloc(sizeof(cobra));
