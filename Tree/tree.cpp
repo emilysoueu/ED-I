@@ -100,7 +100,7 @@ void inOrdem(dado *raiz){
 
   inOrdem(raiz->esquerda);
 
-  cout << "Chave: " << raiz->chave << endl;
+  cout << "Dado: " << raiz->chave << endl;
 
   inOrdem(raiz->direita);
 }

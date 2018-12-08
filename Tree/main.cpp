@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <string>
+//#include "tree.cpp"
 #include "tree.h"
 
 using namespace std;
@@ -44,10 +45,29 @@ int main() {
     //########################## INSERIR COLABORADOR #########################//
 
       case 1:{
+        // ******************** Dados Padrão para fins de teste *************************/
+        colaborador *c1 = new colaborador;
+        c1->nome = "africa";
+        c1->dtsaida = "03/10/2190";
+        c1->dtentrada = "09/10/1992";
+
+        colaborador *c2 = new colaborador;
+        c2->nome = "zeus";
+        c2->dtsaida = "03/10/2006";
+        c2->dtentrada = "09/10/1987";
+
+        colaborador *c3 = new colaborador;
+        c3->nome = "perseu";
+        c3->dtsaida = "03/10/2700";
+        c3->dtentrada = "09/10/1956";
+
+       // ******************** Dados Padrão para fins de teste *************************/
+
+
+
         string nome, entrada, saida, matricula;
         
         colaborador *novo = new colaborador;
-
         cout << "Insira o nome:"<<endl;
         cin >> nome;
         novo->nome = nome;
@@ -64,7 +84,12 @@ int main() {
 
         
         //************************ Inserindo na Lista de BD ***********************/
-        insert(bancoDados,novo); 
+
+        insert(bancoDados,c1); // funcionários padrão (fins de teste)
+        insert(bancoDados,c2); // funcionários padrão (fins de teste)
+        insert(bancoDados,c3); // funcionários padrão (fins de teste)
+        insert(bancoDados,novo);
+
         //************************ Inserindo na Lista de BD ***********************//
 
 
