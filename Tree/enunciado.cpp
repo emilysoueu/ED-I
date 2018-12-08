@@ -1,4 +1,4 @@
-/**
+
 Um laboratório de pesquisa deseja manter informações de seus colaboradores de maneira organizada e de fácil recuperação.
 A ideia é se poder cadastrar as informações dos colaboradores em múltiplas árvores que possam ser consultadas com
 múltiplus objetivos.
@@ -12,7 +12,7 @@ As operações que devem ser implementadas:
 * Você deverá ter 1 árvore para cada parâmetro de consulta
 
 ** Mas não deve ser alocado um novo colaborador para cada árvore. O mesmo deve ser compartilhado.
-*/
+
 
 
 //############################## Dados Para Teste ##########################//
