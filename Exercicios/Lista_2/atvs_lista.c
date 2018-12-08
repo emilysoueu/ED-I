@@ -176,20 +176,18 @@ void delSecond(lista **l){
 	atual = ant -> prox;
 }
 
-// p -> Criar uma segunda cópia de uma lista. /// ta certo???
+// p -> Criar uma segunda cópia de uma lista. ok
 
-lista **copyList(lista **l){
+void copiaLista(lista*l1, lista* novo){
+    node* temp1 = l1 -> cab;
 
-	lista **l2;
-	lista *copia = *l;
+    while(temp1!= NULL){
+        insert(novo, temp1 -> dado);
+        temp1 = temp1 -> prox;
+ 
+    }
 
-	while(copia != NULL){
-		*l2 = criar(copia -> dado);
-		copia = copia -> prox;
-		*l2 = *l2 -> prox;
-	}
-
-	return *l2;
+    return ;
 }
 // o -> Deslocar node(p) n posições à frente numa lista. ok
 
@@ -213,6 +211,24 @@ void deslocaNode(lista **l, int pos, int p){
 		aux -> prox = ant -> prox;
 		ant -> prox = aux;
 	}
+}
+
+void inverterListaCerto(lista* l) {// ======================TERÇAS=======================
+	node* head = l -> cab; // guarda a cabeça
+	node* tail = l -> tail; // guarda o fim 
+	node* aux; 
+
+	while(tail != NULL){
+		aux = tail -> prox;
+		tail ->prox = tail -> prev;
+		tail -> prev = aux;
+		tail = tail -> prox;
+	}
+
+    aux = l -> tail;
+    l -> tail = l -> cab;
+    l -> cab = aux;
+	
 }
 
 // h -> Formar uma lista contendo a união dos elementos de duas listas. ok

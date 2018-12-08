@@ -33,13 +33,13 @@ void *insert(lista *l, int dado){
 
     if (l != NULL){
       if (l -> cab == NULL){
-        printf("eu");
+       
         l -> cab = novo;
         l -> tail = novo;
         l -> cab -> prox = NULL;
         l -> tail -> prox = NULL;
       }else{
-         printf("tu");
+         
         l -> tail -> prox  = novo;
         novo -> prev = l -> tail;
         l -> tail = novo;
@@ -105,7 +105,7 @@ int main(){
 
     int soma = somaInt(lista);
     
-    printf("%d", soma);
+    printf("soma = %d", soma);
 }
 
 

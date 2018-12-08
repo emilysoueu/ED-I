@@ -12,7 +12,7 @@
 using namespace std;
 
 lista* criar(){
-	lista* l = new lista[1];
+	lista* l = new lista;
   
 	if (l == NULL) return NULL;
 	
@@ -42,18 +42,19 @@ void insert(lista *l, colaborador *dado){
 }
 
 dado* criaTree(string name, colaborador *ptrcolaborador){    
-		dado* t = new dado[1];
+		dado* t = new dado;
     
     if (t == NULL) return NULL;
     
     t->chave = name;
     t->direita = NULL;
     t->esquerda = NULL;
-		t->ptcolaborador = ptrcolaborador;
+	t->ptcolaborador = ptrcolaborador;
+
     return t;
 }
 
-// função recursiva
+
 dado* inserirTree(dado* pai, string name, colaborador *vetorcolaborador){
     dado* novo = criaTree(name, vetorcolaborador); // alocando um novo nó
     
@@ -63,7 +64,8 @@ dado* inserirTree(dado* pai, string name, colaborador *vetorcolaborador){
         pai = novo;
         return novo;
         // se a arvore não estiver vazia
-    }else if (name < pai -> chave){  // se o dado a ser inserido for menor que o pai
+    //}else if (name < pai -> chave){  // se o dado a ser inserido for menor que o pai
+    }else if (name < pai ->ptcolaborador->nome){  // se o dado a ser inserido for menor que o pai
         pai->esquerda = inserirTree(pai->esquerda,name, vetorcolaborador);
 
     }else { // se o dado a ser inserido for maior que po pai
@@ -72,6 +74,18 @@ dado* inserirTree(dado* pai, string name, colaborador *vetorcolaborador){
     return pai;
 }
 
+// ANTIGA FUNÇÃO DE BUSCA
+
+/*
+colaborador* busca(dado* raiz, string name){
+    if (raiz == NULL) return NULL;
+    //else if(raiz->chave == name) return raiz->ptcolaborador;
+    else if(raiz->ptcolaborador->nome == name) return raiz->ptcolaborador;
+    //else if(name <= raiz->chave) return busca(raiz->esquerda,name);
+    else if(name <= raiz->ptcolaborador->nome) return busca(raiz->esquerda,name);
+    else return busca(raiz->direita,name);
+}
+*/
 
 colaborador* busca(dado* raiz, string name){
     if (raiz == NULL) return NULL;
@@ -79,43 +93,55 @@ colaborador* busca(dado* raiz, string name){
     else if(name <= raiz->chave) return busca(raiz->esquerda,name);
     else return busca(raiz->direita,name);
 }
-
 //==================== In Order ============================//
 
 void inOrdem(dado *raiz){
   if(raiz == NULL) return;
 
   inOrdem(raiz->esquerda);
-  //cout<<raiz->ptcolaborador->nome<<" ";
-  cout<<raiz->chave<<" ";
+
+  cout << "Chave: " << raiz->chave << endl;
+
   inOrdem(raiz->direita);
 }
-/*
-//==================== Pre Order ============================//
 
-void preOrdem(dado *raiz){
-  if(raiz == NULL) return;
+//==================== In Order ============================//
 
-  cout<<raiz->ptcolaborador->dado<<" ";
-  preOrdem(raiz->esquerda);  
-  preOrdem(raiz->direita);
-}
-*/
 
-//==================== Find Minimun ============================//
-/*Conflito de retorno: ptcolaborador é do tipo[colaborador*] e a função tem q retornar algo do tipo [dado*]
-*/
-
-colaborador* FindMin(dado* raiz){
+dado* FindMin(dado* raiz){
     dado* aux = raiz;
-    if (raiz == NULL){
-        printf("erro: arvore vazia!!");
-        return NULL;
-    }
-    else if (aux->esquerda == NULL)
-        return aux->ptcolaborador;
+    while (aux->esquerda != NULL) 
+        aux = aux->esquerda; 
 
     return FindMin(aux->esquerda);
+}
+
+dado* deleteNode(dado* raiz, string chave){
+  if (raiz == NULL) return raiz;
+  if (chave <raiz->chave)
+    raiz->esquerda = deleteNode(raiz->esquerda,chave);
+  else if(chave > raiz-> chave)
+    raiz->direita = deleteNode(raiz->direita,chave);
+  else{
+    if(raiz->esquerda == NULL){
+      dado* aux = raiz->direita;
+      delete(raiz);
+      return aux;
+
+    } else if (raiz -> direita == NULL){
+      dado* aux = raiz->esquerda;
+      delete(raiz);
+      return aux;
+    }
+    dado* temp = FindMin(raiz->direita);
+    raiz->ptcolaborador = temp->ptcolaborador;
+    raiz->chave = temp->chave;
+    raiz->direita = deleteNode(raiz->direita, temp->ptcolaborador->nome);
+
+  }
+
+  return raiz;
+
 }
 
 

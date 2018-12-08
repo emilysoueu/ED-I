@@ -140,32 +140,8 @@ void trocaOrdem(lista* l1){
 
 
 
-// letra g
 
-lista **concatOrdenada(lista **l1, lista **l2){
-	lista **l3, *aux, *temp1, *temp2;
-	aux = *l3; 
-	temp1 = *l1;
-	temp2 = *l2;
 
-	while(temp1 != NULL || temp2 != NULL)
-		if (temp1-> dado <  temp2 -> dado){
-			addEnd( &*l3,temp1->dado);
-		}else{
-			addEnd( &*l3,temp2 -> dado);
-		}
-		
-	/*
-	if ( temp1 == NULL){
-		addEnd( &*l3,temp2 -> dado);
-		aux-> prox = temp2;
-	}else{
-		addEnd( &*l3,temp1->dado);
-		aux -> prox = temp1;
-	}
-*/
-	return l3;
-}
 
 // m -> Retornar a soma dos inteiros numa lista. ok
 int somaInt(lista *l){
@@ -211,19 +187,7 @@ int main(){
 	
 	
 	
-	//==============================> teste atividade <========================================//
-	// a
-	/**
-	printf("Lista Concatenada");
-	concatList(&papel, livro);
-	printaLista(papel);
-	printf("\n");
-	*/
-	
-	
-	int soma=somaInt(papel);
-	printf("%d", soma);
-	
+
 	
 	
 	

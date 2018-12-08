@@ -1,10 +1,13 @@
+#ifndef TREE_H
+	#define TREE_H
+
 
 #include <iostream>
 #include <cstdio>
 #include <cstdlib>
 #include <string>
-using namespace std;
 
+using namespace std;
 
 typedef struct _colaborador{
 	string nome;
@@ -17,7 +20,6 @@ typedef struct _dado_{
     string chave; /*Dado a ser pesquisado: [dado][dataEntrada][dataSaida]*/
     struct _dado_* direita; 
     struct _dado_* esquerda; 
-    int tipo; // ??
 	colaborador* ptcolaborador; /*Guarda a referencia para o banco de Dados*/
 }dado;
 
@@ -57,12 +59,15 @@ void inOrdem(dado *raiz);
 void preOrdem(dado *raiz);
 
 //dado* FindMin(dado* raiz); // ffunção orginal
-colaborador* FindMin(dado* raiz); // fins de teste
+dado* FindMin(dado* raiz); // fins de teste
 
 //dado* removeNode(dado* root, string key); //ORIGINAL
 colaborador* removeNode(dado* root, string key);//TESTE
-void buscaF(dado** raiz);
 
+
+dado* deleteNode(dado* raiz, string chave);
+
+#endif
 
 
 
