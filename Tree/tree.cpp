@@ -55,8 +55,8 @@ dado* criaTree(string name, colaborador *ptrcolaborador){
 }
 
 
-dado* inserirTree(dado* pai, string name, colaborador *vetorcolaborador){
-    dado* novo = criaTree(name, vetorcolaborador); // alocando um novo nó
+dado* inserirTree(dado* pai, string name, colaborador *ptrcolaborador){
+    dado* novo = criaTree(name, ptrcolaborador); // alocando um novo nó
     
     if (novo == NULL) return NULL;
     
@@ -64,13 +64,14 @@ dado* inserirTree(dado* pai, string name, colaborador *vetorcolaborador){
         pai = novo;
         return novo;
         // se a arvore não estiver vazia
-    //}else if (name < pai -> chave){  // se o dado a ser inserido for menor que o pai
-    }else if (name < pai ->ptcolaborador->nome){  // se o dado a ser inserido for menor que o pai
-        pai->esquerda = inserirTree(pai->esquerda,name, vetorcolaborador);
+    }else if (name < pai->chave){  // se o dado a ser inserido for menor que o pai
+    //}else if (name < pai ->ptcolaborador->nome){  // se o dado a ser inserido for menor que o pai
+        pai->esquerda = inserirTree(pai->esquerda,name, ptrcolaborador);
 
     }else { // se o dado a ser inserido for maior que po pai
-        pai->direita = inserirTree(pai->direita,name, vetorcolaborador);
+        pai->direita = inserirTree(pai->direita,name, ptrcolaborador);
     }
+
     return pai;
 }
 

@@ -42,9 +42,10 @@ int main() {
     cin >> menu;
     cout <<endl;
     switch (menu){
+		
     //########################## INSERIR COLABORADOR #########################//
-
       case 1:{
+		  
         // ******************** Dados Padrão para fins de teste *************************/
         colaborador *c1 = new colaborador;
         c1->nome = "africa";
@@ -64,7 +65,10 @@ int main() {
        // ******************** Dados Padrão para fins de teste *************************/
 
 
+		
+	  //************************* Entrada do Usuário ******************************//
 
+		
         string nome, entrada, saida, matricula;
         
         colaborador *novo = new colaborador;
@@ -79,17 +83,19 @@ int main() {
         novo->dtentrada = entrada;
         cout << "Insira a data de saida: "<<endl;
         cin >> saida;
-        novo ->dtsaida = saida;     
+        novo ->dtsaida = saida;    
+        
+      //************************* Entrada do Usuário ******************************//
+ 
 
 
         
         //************************ Inserindo na Lista de BD ***********************/
-
         insert(bancoDados,c1); // funcionários padrão (fins de teste)
         insert(bancoDados,c2); // funcionários padrão (fins de teste)
         insert(bancoDados,c3); // funcionários padrão (fins de teste)
-        insert(bancoDados,novo);
-
+        
+        insert(bancoDados,novo); // ENtrada do usuário
         //************************ Inserindo na Lista de BD ***********************//
 
 
@@ -154,7 +160,7 @@ int main() {
         switch(op){
           case 1:{
             string name, novoNome;
-            colaborador *temp0, *temp02;
+            colaborador *temp0;
             
 
             cout << "Informe o nome que deseja alterar: "<<endl;
@@ -165,25 +171,10 @@ int main() {
 
             if (temp0 == NULL){ 
               cout << "O nome informado nao esta cadastrado" <<endl;
-            }else{
-              //temp02 = temp0;
+            }else{             
               cout << "Informe o novo nome:"<<endl;
-              cin >> novoNome;
-              //temp02->nome = novoNome; 
+              cin >> novoNome;              
               temp0->nome = novoNome;
-
-              
-              // pq não usa mais o temp02???
-
-              //impressão de lista  após alteração dos dados 
-              cout << "\n\nIMPRESSAO LISTA APOS ALTERACAO\n"<<endl;
-              node *temp25 = bancoDados->cab; 
-
-              while(temp25!=NULL){
-              cout<<temp25->dado->nome<<endl;        
-              temp25 = temp25->prox;
-
-              cout<<"\n\n";
 
               deleteNode(nomesCol,name);
               inserirTree(nomesCol, temp0->nome, temp0);
@@ -191,32 +182,30 @@ int main() {
               cout<<"\n**********NOVA ARVORE ********\n";// in order
               inOrdem(nomesCol);
               cout<<endl;
-              }                     
+                                  
             }
           }
           break; //fim case 1[edição]
           case 2:{
             colaborador* temp0;
-
-            string name,input;
+            string  input;
             string  novoInput;
-            cout << "Informe o nome do colaborador para alterar a data de entrada: ";
-            cin >> name;
+            
+            cout << "Informe a data de entrada que deseja alterar: ";
+            cin >> input;
 
-            temp0 = busca(inputCol,name);// guardando endereço de memoria
+            temp0 = busca(inputCol,input);// guardando endereço de memoria
 
 
             if (temp0 == NULL){ 
-              cout << "O nome informado nao esta cadastrado" <<endl;
+              cout << "A data informada nao esta cadastrado" <<endl;
             }else{
-              //temp02 = temp0;
               cout << "Informe a nova data de entrada:"<<endl;
               cin >> novoInput;
-              //temp02->nome = novoNome; 
-              temp0->nome = novoInput;
+              temp0->dtentrada = novoInput;
 
-              deleteNode(inputCol,name);
-              inserirTree(inputCol, temp0->nome, temp0);
+              deleteNode(inputCol,input);
+              inserirTree(inputCol, temp0->dtentrada, temp0);
 
               cout<<"\n**********NOVA ARVORES********\n"; //In Order
               inOrdem(inputCol);
@@ -228,21 +217,20 @@ int main() {
             colaborador* temp0;
             string name,output;
             string novoOutput;
-            cout << "Informe o nome do colaborador para alterar a data de saida: ";
-            cin >> name;
-            temp0 = busca(outputCol,name);
+            cout << "Informe a data de saida que deseja alterar: "<<endl;           
+            cin >>output;
+            temp0 = busca(outputCol,output);// guardando endereço de memoria
+
 
             if (temp0 == NULL){ 
-              cout << "O nome informado nao esta cadastrado" <<endl;
+              cout << "A data informada nao esta cadastrado" <<endl;
             }else{
-              //temp02 = temp0;
               cout << "Informe a nova data de saida:"<<endl;
               cin >> novoOutput;
-              //temp02->nome = novoNome; 
-              temp0->nome = novoOutput;              
+              temp0->dtsaida = novoOutput;              
 
               deleteNode(outputCol,name);
-              inserirTree(outputCol, temp0->nome, temp0);
+              inserirTree(outputCol, temp0->dtsaida, temp0);
 
               cout<<"\n**********NOVA ARVORE********\n"; // IN ORDER
               inOrdem(outputCol);
