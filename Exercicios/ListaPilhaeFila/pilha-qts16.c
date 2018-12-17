@@ -112,7 +112,7 @@ int main(){
 	printf("Pilha:\n");
 	for (int i =1; i<= max; i++){
 		x = pop(p);
-		printf("\%d ",x);
+		printf("\n%d ",x);
 	}
 	
 	//insere novamene na pilha
@@ -129,7 +129,7 @@ int main(){
 	printf("\nFila:\n");
 	for (int i =1; i<= max; i++){
 		int k = dequeue(f);
-		printf("\%d ",k);
+		printf("\n%d ",k);
 	}
 		
 	// ta dando algum erro na hora de passar pra fila
