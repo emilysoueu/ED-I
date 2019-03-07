@@ -17,8 +17,8 @@ cobra* criar(int x){
 	c -> fim = 0; 
 	c -> max = x;
 	c -> p -> x = 15;
-    c -> p -> y = 20;
-    c -> p -> direction = 1;// direita
+   	c -> p -> y = 20;
+   	c -> p -> direction = 1;// direita
 
 
 	return c;
